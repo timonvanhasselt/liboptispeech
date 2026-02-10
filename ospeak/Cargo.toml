@@ -1,23 +1,15 @@
 [package]
-name = "ospeak"
+name = "liboptispeech"
 version = "0.1.0"
 edition = "2021"
-description = "Neural Text-to-speech model optimized for quality and efficiency"
-license = "MIT"
-repository = "https://github.com/mush42/liboptispeech"
-documentation = "https://github.com/mush42/liboptispeech"
-keywords = [ "tts", "speech", "nlp" , "ml"]
-categories = [ "algorithms", "science", "media",]
-authors = ["Musharraf Omer <ibnomer2011@hotmail.com>"]
+
+[lib]
+name = "liboptispeech"
+crate-type = ["cdylib"]
 
 [dependencies]
-audio-ops = { path="../audio-ops", version="*" }
+optispeech = { path = "../optispeech" }
+audio-ops = { path = "../audio-ops" }
+pyo3 = { version = "0.23", features = ["extension-module"] }
+numpy = "0.23"
 anyhow = "1.0.94"
-clap = { version = "4.5.4", features = ["derive"] }
-env_logger = "0.10.2"
-humantime = "2.1.0"
-log = "0.4.22"
-optispeech = { path="../optispeech", version="*" }
-serde = "1.0.208"
-serde_json = "1.0.125"
-serde_yaml = "0.9.27"
